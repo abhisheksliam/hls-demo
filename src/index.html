@@ -22,9 +22,7 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <p>Hello world! This is just another frontend boilerplate.</p>
-
-        <!--<div id="player">-->
+        <div class="player">
         <video id="video" controls poster=""></video>
 
             <div id="video-controls" class="controls" data-state="hidden">
@@ -34,10 +32,24 @@
                         <span id="progress-bar"></span>
                     </progress>
                 </div>
+
+
                 <button id="mute" type="button" data-state="mute">Mute/Unmute</button>
-                <button id="fs" type="button" data-state="go-fullscreen">Fullscreen</button>
+                <!-- <button id="quality" type="button" data-state="video-quality">Video Quality</button> -->
+                <select id="quality" data-state="video-quality">
+                  <option value="auto" selected="selected">Auto</option>
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
             </div>
-        <!--</div>-->
+            <div id="progress-band">
+              <input id="seek" type="range" value="0" max="666" step="1">
+              <progress id="progress2" value="0" max="666"></progress>
+            <div>
+        </div>
+
+
 
         <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
         <script src="js/main.min.js"></script>
