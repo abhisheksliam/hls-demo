@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
@@ -12,44 +9,34 @@
 
         <link rel="stylesheet" href="css/style.css">
 
-        <!--[if lt IE 9]>
-            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
-        <![endif]-->
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 
+        <!--video player-->
         <div class="player">
-        <video id="video" controls poster=""></video>
+            <video id="video" poster=""></video>
 
+            <!--player controls-->
             <div id="video-controls" class="controls" data-state="hidden">
                 <button id="playpause" type="button" data-state="play">Play/Pause</button>
-                <div class="progress">
-                    <progress id="progress" value="0" min="0">
-                        <span id="progress-bar"></span>
-                    </progress>
-                </div>
-
 
                 <button id="mute" type="button" data-state="mute">Mute/Unmute</button>
-                <!-- <button id="quality" type="button" data-state="video-quality">Video Quality</button> -->
                 <select id="quality" data-state="video-quality">
                   <option value="auto" selected="selected">Auto</option>
                   <option value="low">Low</option>
                   <option value="medium">Medium</option>
                   <option value="high">High</option>
                 </select>
+
+                <div class="progress">
+                    <progress id="progress" value="0" min="0">
+                        <span id="progress-bar"></span>
+                    </progress>
+                </div>
             </div>
-            <div id="progress-band">
-              <input id="seek" type="range" value="0" max="666" step="1">
-              <progress id="progress2" value="0" max="666"></progress>
-            <div>
+
         </div>
-
-
+        <!--end: video player-->
 
         <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
         <script src="js/main.min.js"></script>
