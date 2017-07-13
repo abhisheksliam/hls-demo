@@ -21,8 +21,10 @@
 		var progress = document.getElementById('progress');
 		var progressBar = document.getElementById('progress-bar');
 
+
 		// Only add the events if addEventListener is supported (IE8 and less don't support it, but that will use Flash anyway)
 		if (document.addEventListener) {
+
 			// Wait for the video's meta data to be loaded, then set the progress bar's max value to the duration of the video
 			video.addEventListener('loadedmetadata', function() {
 				progress.setAttribute('max', video.duration);
@@ -74,41 +76,10 @@
 
 			// React to the user clicking within the progress bar
 			progress.addEventListener('click', function(e) {
-				//var pos = (e.pageX  - this.offsetLeft) / this.offsetWidth; // Also need to take the parent into account here as .controls now has position:relative
+				// var pos = (e.pageX  - this.offsetLeft) / this.offsetWidth; // Also need to take the parent into account here as .controls now has position:relative
 				var pos = (e.pageX  - (this.offsetLeft + this.offsetParent.offsetLeft)) / this.offsetWidth;
 				video.currentTime = pos * video.duration;
 			});
-
-		}
-
-		// video quality update
-
-
-		function updateVideoQuality( quality ){
-			// Saving the currentTime in a variable
-			var _time = video.currentTime, _src;
-
-			// setting the video src to the URL of a different video (with the same content at a different quality)
-			
-			switch(quality) {
-				case 'low':
-					_src = ''
-					break;
-				case 'high':
-					_src = ''
-					break;
-				default:
-					_src = '';
-			}
-
-		/*
-		
-		setting the video src to the URL of a different video (with the same content at a different quality)
-		Setting the currentTime to the value in the variable
-		Playing the video
-		handling of multiple sources in hls
-		as a plugin
-		*/
 
 
 		}

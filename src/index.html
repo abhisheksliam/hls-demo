@@ -22,10 +22,7 @@
 
                 <button id="mute" type="button" data-state="mute">Mute/Unmute</button>
                 <select id="quality" data-state="video-quality">
-                  <option value="auto" selected="selected">Auto</option>
-                  <option value="low">Low</option>
-                  <option value="medium">Medium</option>
-                  <option value="high">High</option>
+                  <option value="-1" selected="selected">Auto</option>
                 </select>
 
                 <div class="progress">
@@ -49,8 +46,23 @@
                 hls.attachMedia(video);
                 hls.on(Hls.Events.MANIFEST_PARSED, function () {
                     video.play();
+                    updateVideoQualityOptions(hls);
                 });
             }
+
+            function updateVideoQualityOptions(hls){
+                // render video quality options hls.levels
+              var qualitySelect = document.getElementById("quality");
+                //Create and append the options
+              var qualities = hls.levels;
+              for (var i = 0; i < qualities.length; i++) {
+                  var option = document.createElement("option");
+                  option.value = i;
+                  option.text = qualities[i].name + ' p';
+                  qualitySelect.appendChild(option);
+              }
+            };
+
         </script>
     </body>
 </html>
