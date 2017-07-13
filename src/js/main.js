@@ -81,6 +81,38 @@
 
 		}
 
+		// video quality update
+
+
+		function updateVideoQuality( quality ){
+			// Saving the currentTime in a variable
+			var _time = video.currentTime, _src;
+
+			// setting the video src to the URL of a different video (with the same content at a different quality)
+			
+			switch(quality) {
+				case 'low':
+					_src = ''
+					break;
+				case 'high':
+					_src = ''
+					break;
+				default:
+					_src = '';
+			}
+
+		/*
+		
+		setting the video src to the URL of a different video (with the same content at a different quality)
+		Setting the currentTime to the value in the variable
+		Playing the video
+		handling of multiple sources in hls
+		as a plugin
+		*/
+
+
+		}
+
 	 }
 
  })();
