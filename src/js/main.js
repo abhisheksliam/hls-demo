@@ -6,6 +6,7 @@
 
 	if (supportsVideo) {
 		// Obtain handles to main elements
+		var player = document.getElementsByClassName('player')[0];
 		var video = document.getElementById('video');
 		var videoControls = document.getElementById('video-controls');
 
@@ -77,7 +78,7 @@
 			// React to the user clicking within the progress bar
 			progress.addEventListener('click', function(e) {
 				// var pos = (e.pageX  - this.offsetLeft) / this.offsetWidth; // Also need to take the parent into account here as .controls now has position:relative
-				var pos = (e.pageX  - (this.offsetLeft + this.offsetParent.offsetLeft)) / this.offsetWidth;
+				var pos = (e.pageX  - (this.offsetLeft + this.offsetParent.offsetLeft + player.offsetLeft)) / this.offsetWidth;
 				video.currentTime = pos * video.duration;
 			});
 

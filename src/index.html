@@ -47,6 +47,14 @@
                 hls.on(Hls.Events.MANIFEST_PARSED, function () {
                     video.play();
                     updateVideoQualityOptions(hls);
+                    
+                    var quality = document.getElementById('quality');
+                    // video quality update
+
+                    quality.addEventListener('change', function(event) {
+                        var q_level = parseInt(this.value);
+                        hls.currentLevel = q_level;
+                    });
                 });
             }
 
