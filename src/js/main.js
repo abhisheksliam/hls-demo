@@ -37,15 +37,24 @@
 				if (type == 'playpause') {
 					if (video.paused || video.ended) {
 						playpause.setAttribute('data-state', 'play');
+						videoControls.classList.add('display-control');
 					}
 					else {
 						playpause.setAttribute('data-state', 'pause');
+						showControlsTimeout(videoControls);
 					}
 				}
 				// Mute button
 				else if (type == 'mute') {
 					mute.setAttribute('data-state', video.muted ? 'unmute' : 'mute');
 				}
+			}
+
+			function showControlsTimeout(videoControls) {
+				videoControls.classList.add('display-control');
+				setTimeout(function () {
+					videoControls.classList.remove('display-control');
+				}, 5000);
 			}
 
 			// Add event listeners for video specific events
