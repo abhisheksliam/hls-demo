@@ -1,28 +1,18 @@
 (function () {
 	'use strict';
 
-	// Does the browser actually support the video element?
-	var supportsVideo = !!document.createElement('video').canPlayType;
+		
 
-	if (supportsVideo) {
-		// Obtain handles to main elements
-		var player = document.getElementsByClassName('player')[0];
-		var video = document.getElementById('video');
-		var videoControls = document.getElementById('video-controls');
+		var player = document.getElementById('player'),
+			video = document.getElementById('video'),
+			videoControls = document.getElementById('video-controls'),
+			playpause = document.getElementById('playpause'),
+			mute = document.getElementById('mute'),
+			progress = document.getElementById('progress'),
+			progressBar = document.getElementById('progress-bar');
 
-		// Hide the default controls
+
 		video.controls = false;
-
-		// Display the user defined video controls
-		videoControls.setAttribute('data-state', 'visible');
-
-		// Obtain handles to buttons and other elements
-		var playpause = document.getElementById('playpause');
-		var mute = document.getElementById('mute');
-		var progress = document.getElementById('progress');
-		var progressBar = document.getElementById('progress-bar');
-
-
 		// Only add the events if addEventListener is supported (IE8 and less don't support it, but that will use Flash anyway)
 		if (document.addEventListener) {
 
@@ -93,7 +83,5 @@
 
 
 		}
-
-	 }
 
  })();
