@@ -15,13 +15,12 @@ organize and prefix CSS.
     $ gulp
 
 Will build all source code files and fire a livereload server which serves the 
-files in `dist/`. You also have the following tasks:
+files in `dist/`. (https://github.com/abhisheksliam/hls-demo/tree/gh-pages)
 
  * **less**: Compile all `*.less` files in the `less/` folder into 
    `dist/css/style.css`
  * **scripts**: Concatenate and minify all `*.js` files in the `js/` directory into
    `dist/js/main.min.js`
- * **images**: Minify all images in the `img/` folder
  * **html**: Copy all html files from `src/` `to `dist/`
 
 ## Deploy to gh-pages
