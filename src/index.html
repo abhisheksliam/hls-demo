@@ -1,76 +1,44 @@
 <!DOCTYPE html>
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 
-        <link rel="stylesheet" href="css/style.css">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    </head>
-    <body>
+    <link rel="stylesheet" href="css/style.css">
 
-        <!--video player-->
-        <div id="player">
-            <video id="video" poster="" class="plyr"></video>
+</head>
 
-            <!--player controls-->
-            <div id="video-controls" class="controls plyr" data-state="">
-                <button id="playpause" type="button" data-state="play">Play/Pause</button>
+<body>
 
-                <button id="mute" type="button" data-state="mute">Mute/Unmute</button>
-                <select id="quality" data-state="video-quality">
-                  <option value="-1" selected="selected">Auto</option>
-                </select>
+    <!--video player-->
+    <div id="player">
+        <video id="video" poster=""></video>
 
-                <div class="progress">
-                    <progress id="progress" value="0" min="0">
-                        <span id="progress-bar"></span>
-                    </progress>
-                </div>
+        <!--player controls-->
+        <div id="video-controls" class="controls display-control">
+            <button id="playpause" type="button" data-state="play">Play/Pause</button>
+
+            <button id="mute" type="button" data-state="mute">Mute/Unmute</button>
+            <select id="quality" class="btn-settings">Quality</select>
+
+            <div class="progress">
+                <progress id="progress" value="0" min="0">
+                    <span id="progress-bar"></span>
+                </progress>
             </div>
-
         </div>
-        <!--end: video player-->
 
-        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-        <script src="js/main.min.js"></script>
+    </div>
+    <!--end: video player-->
 
-        <script>
-            if (Hls.isSupported()) {
-                var video = document.getElementById('video');
-                var hls = new Hls();
-                hls.loadSource('https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8');
-                hls.attachMedia(video);
-                hls.on(Hls.Events.MANIFEST_PARSED, function () {
-                    video.play();
-                    updateVideoQualityOptions(hls);
-                    
-                    var quality = document.getElementById('quality');
-                    // video quality update
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="js/main.min.js"></script>
+</body>
 
-                    quality.addEventListener('change', function(event) {
-                        var q_level = parseInt(this.value);
-                        hls.currentLevel = q_level;
-                    });
-                });
-            }
-
-            function updateVideoQualityOptions(hls){
-                // render video quality options hls.levels
-              var qualitySelect = document.getElementById("quality");
-                //Create and append the options
-              var qualities = hls.levels;
-              for (var i = 0; i < qualities.length; i++) {
-                  var option = document.createElement("option");
-                  option.value = i;
-                  option.text = qualities[i].name + ' p';
-                  qualitySelect.appendChild(option);
-              }
-            };
-
-        </script>
-    </body>
 </html>
