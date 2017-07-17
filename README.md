@@ -1,4 +1,4 @@
-# Frontend Boilerplate
+# HLS.js Custom Controls
 
 Uses Gulp, LESS
 
