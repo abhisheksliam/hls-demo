@@ -22,7 +22,7 @@ var paths = {
 gulp.task('scripts', function() {
   return gulp.src(paths.scripts)
     .pipe(concat('main.min.js'))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('dist/js'))
     .pipe(reload({ stream: true }));
 });
