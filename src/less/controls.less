@@ -1,5 +1,17 @@
 // styles for video, controls
 
+// todo: media queries for button and responsive and spaces, any fixed pixel, seperate media queries from normal style
+// todo: style quality dd
+
+@large-button-playpause: 50px;
+@small-button-playpause: 25px;
+
+@large-button-common: 30px;
+@small-button-common: 15px;
+
+@small-screen-below: 568px;
+
+
 video {
     position: relative;
     width: 100%;
@@ -38,9 +50,7 @@ video {
 	}
 
 	button[data-state="play"], button[data-state="pause"] {
-		height:50px;
-		width:50px;
-		margin: -25px -25px;
+		.button-size-responsive(@large-button-playpause, @small-button-playpause);
 		position:absolute;
 		top:50%;
 		left:50%;
@@ -50,10 +60,10 @@ video {
 	}
 
 	button[data-state="mute"], button[data-state="unmute"] {
-		height:30px;
-		width:30px;
+		.button-size-responsive();
 		right: 75px;
 		top: 15px;
+		
 		position:absolute;
 		&:hover {
 			.scale-button(1.5);
@@ -61,8 +71,7 @@ video {
 	}
 
 	.quality {
-		height:30px;
-		width:30px;
+		.button-size-responsive();
 		right: 25px;
 		top: 15px;
 		position:absolute;
@@ -109,20 +118,38 @@ video {
 
 }
 
-// mixin to scale buttons
-.scale-button (@scale: 1) {
-	-webkit-transition: all 200ms ease-in;
-	-webkit-transform: scale(@scale);
-	-ms-transition: all 200ms ease-in;
-	-ms-transform: scale(@scale);
-	-moz-transition: all 200ms ease-in;
-	-moz-transform: scale(@scale);
-	transition: all 200ms ease-in;
-	transform: scale(@scale);
-}
-
 // to show hide controls
 .display-control {
 	opacity : 1.0;
 	background:transparent;
 }
+
+
+// mixin to scale / size buttons
+.scale-button (@scale: 1) {
+
+	// scale only above @small-screen-below
+	@media only screen and (min-width : @small-screen-below) {
+			-webkit-transition: all 200ms ease-in;
+			-webkit-transform: scale(@scale);
+			-ms-transition: all 200ms ease-in;
+			-ms-transform: scale(@scale);
+			-moz-transition: all 200ms ease-in;
+			-moz-transform: scale(@scale);
+			transition: all 200ms ease-in;
+			transform: scale(@scale);
+	}
+}
+
+.button-size-responsive(@large-btn: @large-button-common, @small-btn: @small-button-common) {
+	width: @large-btn;
+	height: @large-btn;
+	margin: calc(@large-btn - (1.5 * @large-btn)) calc(@large-btn - (1.5 * @large-btn));
+
+	@media (max-width : @small-screen-below) {
+		width: @small-btn;
+		height: @small-btn;
+		margin: calc(@small-btn - (1.5 * @small-btn)) calc(@small-btn - (1.5 * @small-btn));
+	}
+}
+
