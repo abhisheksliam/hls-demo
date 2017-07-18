@@ -27,17 +27,14 @@
   dist/                         --> build output files (html, css, js) 
   ```
 
-## Installation
-
+## Installation - Build / Usage 
+    $ git clone https://github.com/abhisheksliam/hls-demo.git .
     $ npm install
 
-## Build / Usage 
-(Build files:  (https://github.com/abhisheksliam/hls-demo/tree/gh-pages))
-  
     $ gulp
 
 Build all source code files and fire a livereload server which serves the 
-files in `dist/`.
+files in `dist/`. (Build files:  (https://github.com/abhisheksliam/hls-demo/tree/gh-pages))
 
  * **less**: Compile all `*.less` files in the `less/` folder into 
    `dist/css/style.css`
