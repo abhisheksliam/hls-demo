@@ -1,8 +1,6 @@
 (function () {
 	'use strict';
 
-	var videoSource = 'https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8';
-
 	var player = document.getElementById('player'),
 		video = document.getElementById('video'),
 		videoControls = document.getElementById('video-controls'),
@@ -10,6 +8,8 @@
 		mute = document.getElementById('mute'),
 		progress = document.getElementById('progress'),
 		progressBar = document.getElementById('progress-bar');
+
+	var	videoSource = video.getAttribute('data-src');
 
 	video.controls = false;
 
