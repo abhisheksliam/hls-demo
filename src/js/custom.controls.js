@@ -84,15 +84,18 @@
 
 	function initVideoQualityOptions(hls) {
 
+		var qualityBtn = document.getElementById('quality-btn');
 		var quality = document.getElementById('quality');
 
 		// update current selection, because quality is auto by default
-		quality.addEventListener('focus', function (event) {
-			this.selectedIndex = hls.currentLevel;
-		});
+		// quality.addEventListener('focus', function (event) {
+		// 	this.selectedIndex = hls.currentLevel;
+		// });
+
+		//todo: update current selection
 
 		// update selection on manual change
-		quality.addEventListener('change', function (event) {
+		qualityBtn.addEventListener('click', function (event) {
 			var q_level = parseInt(this.value);
 			hls.currentLevel = q_level;
 		});
@@ -100,10 +103,12 @@
 		//Create and append the options
 		var qualities = hls.levels;
 		for (var i = 0; i < qualities.length; i++) {
-			var option = document.createElement("option");
-			option.value = i;
-			option.text = qualities[i].name + ' p';
-			quality.appendChild(option);
+			var q = document.createElement("a");
+			// q.value = i;
+			q.setAttribute("data-value", i);
+			q.setAttribute("class", "quality");
+			q.text = qualities[i].name + 'p';
+			quality.appendChild(q);
 		}
 	};
 })();
