@@ -33,14 +33,14 @@
 
 	player.addEventListener('mouseout', makeMouseOutFn(player), true);
 
-	// Hide controls if no mouse movement for 6 seconds
-	var timer = setTimeout(hideControls, 6000);
+	// Hide controls if no mouse movement for 12 seconds
+	var timer = setTimeout(hideControls, 12000);
 	document.addEventListener("mousemove", function () {
 		if (isOnPlayer) {
 			videoControls.classList.add('display-control');
 		}
 		clearTimeout(timer);
-		timer = setTimeout(hideControls, 6000);
+		timer = setTimeout(hideControls, 12000);
 	});
 
 	function hideControls() {

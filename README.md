@@ -5,12 +5,13 @@
   Automatically hides controls if no mouse activity for a while, Display controls on mouse hover, Display controls on mouse movement only if pointer is on video.
 * Video Quality: Default quality is set to auto, Quality options created from hls levels manifest. On manual quality selection,        quality changed to selected quality level.
 
-## Demo Url
-http://abhisheksliam.github.io/hls-demo
+* Demo Url: http://abhisheksliam.github.io/hls-demo
 
 (Supported Browsers: Latest Chrome / Firefox)
 
-## Source Code (https://github.com/abhisheksliam/hls-demo)
+## Source Code 
+(https://github.com/abhisheksliam/hls-demo)
+
   Uses Gulp, LESS, Javascript
 
   ```
@@ -30,7 +31,8 @@ http://abhisheksliam.github.io/hls-demo
 
     $ npm install
 
-## Build / Usage (Build files:  (https://github.com/abhisheksliam/hls-demo/tree/gh-pages))
+## Build / Usage 
+(Build files:  (https://github.com/abhisheksliam/hls-demo/tree/gh-pages))
   
     $ gulp
 
