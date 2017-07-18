@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "hls-demo",
   "version": "0.0.0",
-  "description": "",
+  "description": "hlsjs custom controls demo",
   "main": "gulpfile.js",
   "dependencies": {
     "browser-sync": "^1.3.0",
@@ -18,13 +18,13 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/abhisheksliam/hls-demo.git"
   },
-  "author": "",
+  "author": "Abhishek Kumar",
   "license": "MIT",
   "bugs": {
     "url": ""
   },
-  "homepage": "",
+  "homepage": "https://github.com/abhisheksliam/hls-demo",
   "keywords": []
 }
