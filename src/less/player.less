@@ -77,7 +77,7 @@ video {
 	button[data-state="mute"], button[data-state="unmute"] {
 		.button-size-responsive();
 		.button-side-relative(2.5);
-	
+
 		position:absolute;
 		&:hover {
 			.scale-button(1.5);
@@ -158,10 +158,12 @@ video {
 	background:transparent;
 }
 
+.show {display:block;}
+
+.active {background: green;}
 
 // mixin to scale / size buttons
 .scale-button (@scale: 1) {
-
 	// scale only above @small-screen-below
 	@media only screen and (min-width : @small-screen-below) {
 			-webkit-transition: all 200ms ease-in;
@@ -208,5 +210,3 @@ video {
 		top: (@small-button-common*0.5);
 	}
 }
-
-.show {display:block;}

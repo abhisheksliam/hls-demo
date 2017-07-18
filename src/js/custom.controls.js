@@ -87,28 +87,57 @@
 		var qualityBtn = document.getElementById('quality-btn');
 		var quality = document.getElementById('quality');
 
-		// update current selection, because quality is auto by default
-		// quality.addEventListener('focus', function (event) {
-		// 	this.selectedIndex = hls.currentLevel;
-		// });
-
-		//todo: update current selection
-
-		// update selection on manual change
 		qualityBtn.addEventListener('click', function (event) {
-			var q_level = parseInt(this.value);
-			hls.currentLevel = q_level;
+			makeActive();
+			quality.classList.toggle("show");
 		});
 
 		//Create and append the options
 		var qualities = hls.levels;
 		for (var i = 0; i < qualities.length; i++) {
 			var q = document.createElement("a");
-			// q.value = i;
 			q.setAttribute("data-value", i);
 			q.setAttribute("class", "quality");
 			q.text = qualities[i].name + 'p';
 			quality.appendChild(q);
 		}
+
+		// update dropdown selection
+		var elems = document.querySelectorAll('#quality a');
+
+		function makeActive(UserSelectionEvent) {
+		    for (var i = 0; i < elems.length; i++)
+				{
+					if(!UserSelectionEvent && i == hls.currentLevel) {
+						elems[i].classList.add('active');
+					} else{
+						elems[i].classList.remove('active');
+					}
+				}
+				if(UserSelectionEvent){
+					var q_level = parseInt(this.getAttribute('data-value'));
+					hls.currentLevel = q_level;
+					this.classList.add('active');
+				}
+		};
+
+		for (var i = 0; i < elems.length; i++)
+		    elems[i].addEventListener('mousedown', makeActive);
+
+		// hide dd if click elsewhere
+		window.onclick = function(event) {
+			if (!event.target.matches('.dropbtn')) {
+
+				var dropdowns = document.getElementsByClassName("dropdown-content");
+				var i;
+				for (i = 0; i < dropdowns.length; i++) {
+					var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					}
+				}
+			}
+		};
+
 	};
 })();

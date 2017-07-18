@@ -20,7 +20,7 @@
             <button id="mute" type="button" data-state="mute">Mute/Unmute</button>
             <!--<select id="quality" class="quality btn-settings">Quality</select>-->
             <div class="dropdown">
-            <button id="quality-btn" onclick="myFunction()" class="dropbtn btn-settings"></button>
+            <button id="quality-btn" class="dropbtn btn-settings"></button>
             <div id="quality" class="dropdown-content">
              </div>
             </div>
@@ -37,25 +37,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script src="js/main.js"></script>
-    <script>
-    
-function myFunction() {
-    document.getElementById("quality").classList.toggle("show");
-};
-
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}</script>
 </body>
 
 </html>
