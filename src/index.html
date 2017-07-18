@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title></title>
-    <meta name="description" content="">
+    <meta name="description" content="Hls Js Custom Controls">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -12,13 +12,16 @@
 <body>
     <!--video player-->
     <div id="player">
-        <video id="video" data-src="https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8"></video>
+        <video id="video" data-src="https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8" poster="data:image/gif,AAAA"></video>
         <!--player controls-->
         <div id="video-controls" class="controls display-control">
             <button id="playpause" type="button" data-state="play">Play/Pause</button>
 
             <button id="mute" type="button" data-state="mute">Mute/Unmute</button>
-            <select id="quality" class="quality btn-settings">Quality</select>
+            <div class="dropdown">
+              <button id="quality-btn" class="dropbtn btn-settings"></button>
+              <div id="quality" class="dropdown-content"></div>
+            </div>
 
             <div class="progress">
                 <progress id="progress" value="0" min="0">
